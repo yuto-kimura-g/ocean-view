@@ -8,7 +8,10 @@ extend({ Water });
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      water: React.DetailedHTMLProps<React.HTMLAttributes<THREE.Mesh>, THREE.Mesh>;
+      water: React.DetailedHTMLProps<
+        React.HTMLAttributes<THREE.Mesh>,
+        THREE.Mesh
+      >;
     }
   }
 }
@@ -34,10 +37,16 @@ const GeoOcean = () => {
     meshRef.current.geometry.attributes.position.needsUpdate = true;
   });
 
-  // const gl = useThree((state) => state.gl)
-  const waterNormals = useLoader(THREE.TextureLoader, '/waternormals.jpeg');
+  // const gl = useThree((state) => state.gl);
+  const waterNormals = useLoader(
+    THREE.TextureLoader,
+    '/ocean-view/waternormals.jpeg'
+  );
   waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping;
-  const geometry = useMemo(() => new THREE.PlaneGeometry(2048, 2048, 512, 512), []);
+  const geometry = useMemo(
+    () => new THREE.PlaneGeometry(2048, 2048, 512, 512),
+    []
+  );
   const config = useMemo(
     () => ({
       textureWidth: 2048,
@@ -48,7 +57,8 @@ const GeoOcean = () => {
       waterColor: 0x001e0f,
       distortionScale: 5.0,
       fog: true,
-      // format: gl.encoding
+      // format: gl.encoding,
+      // format: gl.outputEncoding
     }),
     [waterNormals]
   );
