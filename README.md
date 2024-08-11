@@ -12,6 +12,7 @@
 - Three.js @0.167.1
 - react-three/fiber (R3F) @8.16.8
 - react-three/drei @9.109.5
+- react-ga4 @2.1.0
 
 ## References
 - ChatGPT-4o

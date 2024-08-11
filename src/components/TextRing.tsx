@@ -3,6 +3,7 @@ import { Text } from '@react-three/drei';
 import { Euler, Vector3 } from 'three';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
+import ReactGA from 'react-ga4';
 
 const TextRing: React.FC<{ text: string }> = ({ text }) => {
   const groupRef = useRef<THREE.Group>(null);
@@ -10,6 +11,11 @@ const TextRing: React.FC<{ text: string }> = ({ text }) => {
 
   const handleTextClick = () => {
     setAutoRotateActive(!autoRotateActive);
+    ReactGA.event({
+      category: 'eventCategory:User',
+      action: 'eventAction:click',
+      label: 'eventLavel:TextRing',
+    });
   };
 
   useFrame(() => {
@@ -21,7 +27,6 @@ const TextRing: React.FC<{ text: string }> = ({ text }) => {
 
   const radius = 400;
   const words = text.split('').reverse();
-  // wordsをcharsに更に分解
   const nWords = words.length;
   const texts = useMemo(() => {
     const angleStep = (Math.PI * 2) / nWords;
