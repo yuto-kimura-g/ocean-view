@@ -3,10 +3,6 @@
   "private": true,
   "version": "0.0.1",
   "homepage": "https://yuto-kimura-g.github.io/ocean-view",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yuto-kimura-g/ocean-view.git"
-  },
   "type": "module",
   "scripts": {
     "dev": "vite",
